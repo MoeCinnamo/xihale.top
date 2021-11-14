@@ -21,9 +21,17 @@
 /*自定义css*/
 @font-face{
     font-family:"851";
-    src:url('http://o.xurl.ga/fonts/851.ttf');
+    src:url('https://o.xurl.ga/fonts/851.ttf');
 }
 @font-face{
     font-family:"Hanyi Garden";
-    src:url('http://o.xurl.ga/fonts/HanyiSentyGarden.ttf');
+    src:url('https://o.xurl.ga/fonts/HanyiSentyGarden.ttf');
+}
+@font-face{
+  font-family:"FiraCode-Medium";
+  src:url('https://o.xurl.ga/fonts/FiraCode-Medium.ttf');
+}
+@font-face{
+  font-family:"HanyiSummerPalace";
+  src:url('https://o.xurl.ga/fonts/HanyiSummerPalace.ttf');
 }
