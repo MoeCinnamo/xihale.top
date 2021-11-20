@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Electron</title>
-    <url>/1970/01/Electron/</url>
+    <url>/Electron/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇文章是赶出来的,所以写的不是很好</p>
 <p>主要是讲了如何创建一个 Electron 项目</p>
 <blockquote>
@@ -51,7 +51,7 @@
   </entry>
   <entry>
     <title>Java-io</title>
-    <url>/1970/01/Java-io/</url>
+    <url>/Java-io/</url>
     <content><![CDATA[<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner; <span class="comment">//引入</span></span><br><span class="line"></span><br><span class="line">Scanner input=<span class="keyword">new</span> Scanner(System.in); <span class="comment">//绑定输入流到input</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a=input.nextInt(); <span class="comment">//输入int,其他类型以此类推</span></span><br><span class="line">String s=input.next(); <span class="comment">//输入String</span></span><br></pre></td></tr></table></figure>
 <h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line">System.out.print(str); <span class="comment">//直接输出</span></span><br><span class="line">System.out.println(str); <span class="comment">//输出加换行</span></span><br><span class="line">System.out.printf(<span class="string">&quot;...&quot;</span>[,...]); <span class="comment">//格式化输出,玩过c语言的都深有体会</span></span><br></pre></td></tr></table></figure>
 ]]></content>
@@ -65,7 +65,7 @@
   </entry>
   <entry>
     <title>Linux-磁盘分析</title>
-    <url>/1970/01/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E6%9E%90/</url>
+    <url>/Linux-%E7%A3%81%E7%9B%98%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>linux</code>占空间过大,需要软件进行分析</p>
 <h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><p>安装<code>ncdu</code></p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install ndcu</span><br></pre></td></tr></table></figure>
@@ -80,13 +80,8 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/1970/01/css%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Onedrive5T(E5的获取)</title>
-    <url>/1970/01/Onedrive5T/</url>
+    <url>/Onedrive5T/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Office365开发版E5是为开发人员提供的，是微软的官方活动，申请Office 365开发者计划可以获得为期3个月的免费Office365 E5。 而E5计划就包含了25个用于所有Office 365 应用的许可证。如果嫌正版office365贵的话，这可是你免费获取office的好机会了！</p>
 <p>PS:过程很麻烦！要有足够耐心，xihale遇到过很多错误！搞了一天！</p>
 <p>需要材料：一个microsoft账号（用qq邮箱注册一个就行），一个github账号，一个有耐心的脑，一个外国代理，一个VPS/服务器</p>
@@ -143,7 +138,7 @@
   </entry>
   <entry>
     <title>git-学习</title>
-    <url>/1970/01/git/</url>
+    <url>/git/</url>
     <content><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ol>
 <li><p>连接你的账号</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮箱&quot;</span><br></pre></td></tr></table></figure>
@@ -165,7 +160,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/1970/01/hello-world/</url>
+    <url>/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -179,7 +174,7 @@
   </entry>
   <entry>
     <title>letsencrypt 证书生成</title>
-    <url>/1970/01/letsencrypt/</url>
+    <url>/letsencrypt/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><code>letsencrypt</code>是一个免费的<code>ssl</code>证书机构</p>
 <h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><h3 id="安装certbot"><a href="#安装certbot" class="headerlink" title="安装certbot"></a>安装<code>certbot</code></h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo apt install certbot</span><br></pre></td></tr></table></figure>
 <h3 id="申请"><a href="#申请" class="headerlink" title="申请"></a>申请</h3><p>把<code>xihale.top</code>改成你要申请的域名即可<br>用户邮箱随便,中间的操作全部填<code>Y</code>,最后它会提示你改<code>TXT</code><br><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">certbot certonly --preferred-challenges dns --manual  -d *.xihale.top,xihale.top --server https://acme-v02.api.letsencrypt.org/directory</span><br></pre></td></tr></table></figure></p>
@@ -194,7 +189,7 @@
   </entry>
   <entry>
     <title>Messages-强大的短链程序</title>
-    <url>/1970/01/messages/</url>
+    <url>/messages/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>前一阵子,在网上找<code>链接缩短</code>的开源项目,想搭一个这样的网站</p>
 <p>谁知,要不就是太<code>癃肿</code>(一个链接缩短网站,要注册???),要不就没有我想要的<code>功能</code></p>
 <p>所以,趁着最近学了下<code>PHP</code>的<code>header</code>和<code>PDO</code>(连接<code>mysql</code>的工具),就花了3天写了这个工具</p>
@@ -239,7 +234,7 @@
   </entry>
   <entry>
     <title>python-蓝凑云直链解析</title>
-    <url>/1970/01/python-lanzou/</url>
+    <url>/python-lanzou/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>就是看到很多大佬写了,不过99%<code>没开源</code>,1%用的<code>e语言</code></p>
 <p>所以,我先写个<code>py</code>版本的,然后再去做个<code>php</code>版的(有时间的话)</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>花了很多时间,遇到了很多<code>坑</code>,没有<code>注释</code>…</p>
@@ -259,7 +254,7 @@
   </entry>
   <entry>
     <title>Win-磁盘修复</title>
-    <url>/1970/01/win-%E7%A3%81%E7%9B%98%E4%BF%AE%E5%A4%8D/</url>
+    <url>/win-%E7%A3%81%E7%9B%98%E4%BF%AE%E5%A4%8D/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>如果一不小心把电脑的磁盘弄坏了(比如写入文件时突然断电)</p>
 <h2 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h2><p><code>win+x</code>调出<code>PowerShell(管理员)</code></p>
 <p>简单一步搞定</p>
@@ -271,7 +266,7 @@
   </entry>
   <entry>
     <title>xmysql-一个简单的mysql类</title>
-    <url>/1970/01/xmysql/</url>
+    <url>/xmysql/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近写一个聊天软件, server 端得用到 mysql </p>
 <p>但是c++能用的库很少,所以我就对照<a href="https://blog.csdn.net/fengxinlinux/article/details/75675360">大佬rotation的c语言库</a>和官方api文档做了个c++的库</p>
 <p>Bug肯定是还有的,不过正常使用应该没啥问题了</p>
@@ -286,7 +281,7 @@
   </entry>
   <entry>
     <title>动态修改Referer欺骗服务器</title>
-    <url>/1970/01/%E5%8A%A8%E6%80%81%E4%BF%AE%E6%94%B9referer/</url>
+    <url>/%E5%8A%A8%E6%80%81%E4%BF%AE%E6%94%B9referer/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在做<code>js(electron)</code>版本的蓝奏解析时,发现要修改<code>referer</code>发送请求,但是<code>chrome</code>内核不允许这样做</p>
 <h2 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h2><blockquote>
 <p>依赖: <code>ipcMain</code>,<code>ipcRenderer</code></p>
@@ -307,5 +302,10 @@
       <tags>
         <tag>electron</tag>
       </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/css%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
