@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title></title>
+    <url>/a/</url>
+    <content><![CDATA[<script src="/Crypto.js"></script><script>
+            let p=prompt("请输入密码!");
+            document.querySelector("#post").innerHTML=window.CryptoJS.AES.decrypt('U2FsdGVkX19E25UezdmNk0/g9F98PZPPtFh3aHECwqeAFQIGo+qzd/ajoR8IYv74',p).toString(window.CryptoJS.enc.Utf8)
+        </script>]]></content>
+  </entry>
+  <entry>
     <title>初学VB</title>
     <url>/%E5%88%9D%E5%AD%A6VB/</url>
     <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>天下初中生苦<code>VB</code>久矣</p>
