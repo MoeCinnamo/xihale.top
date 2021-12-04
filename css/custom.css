@@ -35,3 +35,6 @@
   font-family:"HanyiSummerPalace";
   src:url('/HanyiSummerPalace.ttf');
 }
+.recent-post-item{
+    max-height: 360px;
+}
