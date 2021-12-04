@@ -317,7 +317,7 @@
       </tags>
   </entry>
   <entry>
-    <title>应付VB</title>
+    <title>初学VB</title>
     <url>/%E5%88%9D%E5%AD%A6VB/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>天下初中生苦<code>VB</code>久矣</p>
 <p><code>VB</code>确实可以在某种程度上帮助我们使用<code>Windows</code></p>
@@ -389,7 +389,7 @@
 <li>多层循环不能省略<code>Next</code></li>
 <li>步长非<code>1</code>不能省略<code>Step</code></li>
 </ol>
-<figure class="highlight vb"><table><tr><td class="code"><pre><span class="line"><span class="keyword">For</span> i=<span class="number">1</span> <span class="keyword">To</span> <span class="number">10</span></span><br><span class="line">    <span class="keyword">For</span> j=<span class="number">1</span> <span class="keyword">To</span> <span class="number">9</span> <span class="keyword">Step</span> <span class="number">2</span></span><br><span class="line">        Print <span class="type">String</span>(i) &amp; <span class="type">String</span>(j)</span><br><span class="line">    <span class="keyword">Next</span> j</span><br><span class="line"><span class="keyword">Next</span> i</span><br></pre></td></tr></table></figure>
+<figure class="highlight vb"><table><tr><td class="code"><pre><span class="line"><span class="keyword">For</span> i=<span class="number">1</span> <span class="keyword">To</span> <span class="number">10</span> 	</span><br><span class="line">    <span class="keyword">For</span> j=<span class="number">1</span> <span class="keyword">To</span> <span class="number">9</span> <span class="keyword">Step</span> <span class="number">2</span></span><br><span class="line">        Print <span class="type">String</span>(i) &amp; <span class="type">String</span>(j)</span><br><span class="line">    <span class="keyword">Next</span> j</span><br><span class="line"><span class="keyword">Next</span> i</span><br></pre></td></tr></table></figure>
 <h5 id="进阶"><a href="#进阶" class="headerlink" title="进阶"></a>进阶</h5><p>循环还有很多种,这两种比较重要,最好掌握</p>
 <p>不过考试中一般只考<code>For</code>,所以只为了考试的话就不用进阶了</p>
 <figure class="highlight vb"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Do</span> <span class="keyword">while</span> 条件</span><br><span class="line">    ...</span><br><span class="line"><span class="keyword">Loop</span></span><br></pre></td></tr></table></figure>
