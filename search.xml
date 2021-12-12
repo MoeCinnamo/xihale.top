@@ -3,9 +3,9 @@
   <entry>
     <title></title>
     <url>/a/</url>
-    <content><![CDATA[<script src="/Crypto.js"></script><script>
+    <content><![CDATA[<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script><script>
             let p=prompt("请输入密码!");
-            document.querySelector("#article-container").innerHTML=window.CryptoJS.AES.decrypt('U2FsdGVkX1/6AsrnO006DgbmNy0lFWJikY/RywelKDeEnEfrMBS9LiYXbajrssAm',p).toString(window.CryptoJS.enc.Utf8)
+            document.querySelector("#article-container").innerHTML=window.CryptoJS.AES.decrypt('U2FsdGVkX1/aPtaArDY1Ta3lNt8Vug1hFYbZXlmgXtQT39cwJ4aZ2nPWHbSFZN0E',p).toString(window.CryptoJS.enc.Utf8)
         </script>]]></content>
   </entry>
   <entry>
