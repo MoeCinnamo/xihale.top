@@ -19,21 +19,21 @@
 }
 
 /*自定义css*/
-@font-face{
+/*@font-face{
     font-family:"851";
     src:url('https://o.xurl.ga/fonts/851.ttf');
-}
+}*/
 @font-face{
     font-family:"Segoe UI";
-    src:url('/Segoe UI.ttf');
+    src:url('/fonts/Segoe UI.ttf');
 }
 @font-face{
   font-family:"FiraCode-Medium";
-  src:url('https://o.xurl.ga/fonts/FiraCode-Medium.ttf');
+  src:url('/fonts/FiraCode-Medium.ttf');
 }
 @font-face{
   font-family:"HanyiSummerPalace";
-  src:url('/HanyiSummerPalace.ttf');
+  src:url('/fonts/HanyiSummerPalace.ttf');
 }
 .recent-post-item{
     max-height: 360px;

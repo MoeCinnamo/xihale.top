@@ -1,11 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>xsocket</title>
+    <url>/xsocket/</url>
+    <content><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>身为一个合格的热爱编程的青少年，<br>当然有想过做些什么以凸显自己的技术吧</p>
+<p>但是，一个不能互联的程序，玩久了就会失去新意</p>
+<p>所以，初一下学期刚开始，我就开始了<code>socket</code>开发</p>
+<p>但是，奈何路途不顺，遇到了很多挫折，所以说我很讨厌c语言的socket库(当时是dll没加载成功然后整个代码运行错误，找老师，连老师也不知道什么问题)</p>
+<p>然后就停了很久，直到初二上学期接触了动态链接库(dll,so)，才算正式打开了这个项目</p>
+<p>后来，算是成功的搞定了<code>socket</code>开发的软件，可是，奈何过程及其艰辛</p>
+<p>我可不想以后开发这个都如此艰辛</p>
+<p>然后就开始<code>xsocket</code>库的开发了!</p>
+<h2 id="言"><a href="#言" class="headerlink" title="言"></a>言</h2><h3 id="何谓-socket"><a href="#何谓-socket" class="headerlink" title="何谓 socket ?"></a>何谓 <code>socket</code> ?</h3><p>“简单”来说，<code>socket</code>就是<code>套接字</code></p>
+<p>……</p>
+<p>晦涩难懂…</p>
+<p>好吧，当然得简化了(大佬勿喷，这里省略了我觉得不必讲的东西，并不是我不知道哈)</p>
+<p><code>socket</code>就是<del>钱</del>(<code>线</code> xian)</p>
+<p>你没听没错，就是<code>线</code></p>
+<p>不过，是<code>纸电话</code>上的<code>线</code>(来自<em>玉子的爱情故事</em>):<br><img src="https://pica.zhimg.com/c76cc5efa69639a783fd29e9f3ebb4e8_r.jpg?source=1940ef5c" alt="`线`"></p>
+<p>鉴于是<code>饼藏</code>给<code>玉子</code>，所以: </p>
+<p>第一个(<code>饼藏</code>手里的): 服务器</p>
+<p>第二个(<code>玉子</code>手里的): 客户端</p>
+<p>而中间支持<code>饼藏</code>(<code>服务端</code>)和<code>玉子</code>(<code>客户端</code>)链接的就是<code>线</code>(<code>socket</code>)</p>
+<p>所以，总结: 在<code>服务端</code>和<code>客户端</code>建立链接时，得用<code>socket</code></p>
+<p>讲完了，就是如此简单…</p>
+<h3 id="如何-socket"><a href="#如何-socket" class="headerlink" title="如何 socket"></a>如何 <code>socket</code></h3><p>这个的话，我既然敢写这篇文章</p>
+<p>那当然可以拿出点什么</p>
+<p>代码已经放在<a href="https://github.com/xihale/xsocket">github</a>(<a href="https://gitee.com/xihale/xsocket">gitee</a>)上了</p>
+<p>emm, <code>README.md</code> 中已经有了足够的介绍，这里就补充一点点吧</p>
+<ol>
+<li><p><code>old</code> 版是原xsocket的备份，没什么用了</p>
+<p>仅供参考</p>
+</li>
+<li><p>普通使用( <code>cli</code> 开发)</p>
+<p> 一般用 <code>beta</code> 版的</p>
+</li>
+<li><p><code>Qt</code> 开发</p>
+<p> 鉴于 <code>Qt</code> 的尿性，我提供了专门针对 <code>Qt</code> 的版本: <code>Qt</code> 分支</p>
+<p> 虽然 <code>Qt</code> 有提供 <code>socket</code> 库，但是我还是想做…</p>
+</li>
+<li><p>(暂无，待编辑)</p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>编程</category>
+        <category>cpp</category>
+      </categories>
+      <tags>
+        <tag>cpp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Others but important</title>
     <url>/Others%20but%20important/</url>
     <content><![CDATA[<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script><script>
             let p=prompt("我的名字");
-            document.querySelector("#article-container").innerHTML=window.CryptoJS.AES.decrypt('U2FsdGVkX1/gahhGpB2Ji7gcHmVax1N7/iOH3Ve0QUeoFDxsuhO7WJ9dQlFsKJXqQacPSKseJLNjKP7o1SSTpAImqoxsffqK32skIKRGojE2QaNP3YLHTI52Il/bJvbsNX6SifXWN1q24uJY822FmEptKm9Cq+Dm4FFhG2g6nluuKu4slAOYIk+QR4wh8Wadd0bZzdkgW2Ft94btRvQPL3P968oqyYdYB2KkCwZ2mumBuckyTgtDTcDVlb6jHagbbhlJok5WMK42X3MFCpjpLKsG+kaNG6YDE/XMy8jrGX5FR2UXLgg9OhGBReh/18kiwZ6o985smiacW+dJvFHPgh5zz4GneT0kFXmNjls58dRNxkDZxvPMlDZBbHhy9PFk6GEqHdKqEWx93NjUsItz4b1DOmQr0rzQ9fdxGuJEEMtBOW1uF87FPKDe4o2hZz3SSrBphw/FR82zSZBl0WzxzOmqeLCmBa2JDX1FZpwVrKEz9NdaeL1I/nx3G520v+Kyu+4lOssSyiC3UkzXovDM3ziPBWBXddc2cJWFtJC54S0s6A951QVfAAm5HrxxAKfED6P2PbYABCPqnKOW0dgCpasZ/DFW++iBD3C4olVSRm3CIPk+wwbe6KoZk7YPiDYPiqwSiDXy9g7nHuqPdycHmbNhZpu7ECbszPoh5/ltnlAlpTEJ0GtWIofxC/Am1g8i4zTrV++K76At0x27YHH8O6oQUvGxE886PhS/aAZufK8/PawF7nmW4drcbcHb2yXFNg6B8Mol/H5gue1BLTKpSfX0niAvHwcsONcnCvQ35NMo6gS+YtYqPoLTR1/a4/nMqH40wK1mxuCsBYYMS870Aw5EiKRPQNNieVZOtCPx/YXJHW+soIRq+Oid54CvRAw49+H7P9C7SRJS7cX9q5yceo1+aKm/vEsBKblOp9Q/o7iHUa3WeUipZ8VPoAN0BgA7lP4qFGdMKXOV7z95vwSJxVWaNu32Cmpzix0WEQdX/UEOzW6/N8rUUlKVYlXYcqnx0f5LWjsgsrMufuYtUhU1Kv649yWIxSkEhScfY1axDvMhQXvJUdugTgjzxsFpCvuyK2rBlfdFr9qZW2PC3NC90LztAb1ud+T2XNKE+ff+N0vhyj8EY4dmtjV4TM9RVPEQRNE3JdtCRcgfv431/MyRUd1noW44mPWUAMpEBfjB5NlZOnCyB0yQyckai5f6ZMZa/xcPGg5EiiyqFbHRJ+6UyD0WKbmupkvfOtZia+/Ey+F+ZOneG+WgzIzZSip/k4MrhAJwZFao8Sv3qEJZTjUnrLuh8vxWuvsmM4kGtUSrX1M/boAHOanCyLmv84h94v0k2Fn8GIFAktppvK5Q6w6LBRJ9JPJ5xTdHwh2GpReZGirV0hs03inoU30CKUYKk5um3scHjl97fgKr77LPeBJhxHYlB+RHWU+QRj2j86QjHCklrBvASHI6hoWfZnTFAjVANdS58XtNQpp6WVcIit9G6mF+jvST48fgKfFBBOtv8cbAOlsiv6YQPQwWTnnTtmfDwwMo9S1qd+k7t1huTz6TivlCaNKPwxymP/9AA7RxetJTySbYTfqYZAUeJyKfo2GfjKGHjtPGIn5EjiNctk0Ao4hrzhSw1vzZa5ETkSlE80HGa6wzkgPhtP8V2HCTvHqFeU60IItiTDJwnSaAV8C9w9X1oOJjUhZpIxgDyOI4jDtLrvC8GlJqV8W3TAoskrkD/1BtD8NyRyjvuKB3N1l1tP12jTJ9DrKSdAL0cywQo3bXIVKaDvhlBgvgeOdqYE3LLrF0ri9xNNR0TAkVdNsrvABuBgacG7naRz0w/IzkJoCvbZBUpfa8dBFHE++JKSAwiinDwmsYDJo0tDDwVM6FCA==',p).toString(window.CryptoJS.enc.Utf8)
+            document.querySelector("#article-container").innerHTML=window.CryptoJS.AES.decrypt('U2FsdGVkX1/L9Sn4ysEzECvQluEsJm3+6D77uyhna7v9DHB96Jq5geNe3rdhtIlMAg4AthyDDonpvvmOskO2mTkrkEG7r/AuqlLIpBYJXGdEC4Ez3JUVgNwrjWzid0qUexN+AXl+bp54KNLgOK5yqm5Rhc+VUBMmYSFzIY2XdBRnEhPw+6oaabOs8KBECoJddzU6sq0lMwXpL+4gYuXT2krMNH4CXlem4tukfA6Tu3jhOBc2YSDOjPkGNYAtKgf9UkzAoe9NlpQIS2jO0S7teMzskFAvfALQMJNhdhqBDWtRWEaGWpnc9yKNprrrA+yy6y3qkkYCedDCgMuJspga6VnIQFDH09W5L9qLNeTjetEvMwSNy2QmuSRCMcAAf4CaOC2UOsp8eH+G/Ma0BPzSWat2BpTFwLH7UasbjGq/SP3IE2UP1g4o+FjHb6CUyPJ3iXypt7g+14BU8HdeX6snYaVE/VbrPFS2DZL4RfUdL3H5ySu/kVahZ9Nj6Y9khjKtR6sH7aKJWWGFW5nOJii/vgVrPBKIzAFfW0QJs0/lxjSGxAuvLams1gI+dWKoCDxpgdKGLmyr5SK765Lk8ljXhRmMKXnHvn28C39M4NcOQxWfKNUct4ptO6xPYSr9qCPykvCIoQt1EnukzgJm0lVDb8aOATi7KXhR4KVtHIKoYh+VNWRnhz0Jo9yXtP/Vcqt9sEyUOUS09gpytqnyI/fePoON+v3EnajHOFdFWj+VLSwM/YUvR/JjnChA+dM6DomVuJNt9lBA33RmBzkF4yLNdMoEdZrEVK0eKi6lRTky6ZhotJru9pHpt7f6tQ/s/L4WNkutHEghIoiE0xwdoTrRHqU9OZKJC1YVdJukkQ9HXaPyy2Q0I1BLP0qgeZA6Y0UREEI6AySGXVLP/ovnUAPmX5ovLbMy/iMft25HaF+hh51IcawXOc57cxk3FselqA+gcGGuRY7xsVYt12gZPTUWoC8Yk1ZRZLmU1R9Q+CZToJsCiOR1CNc+/sdGGGKfEUSuHaTiU1azqwzSssT8A+cH4uueDoAY5IZq78L65vpV0KccHnx4UEkza4M2eolg/+xyqM8YLGRdW59l1SOUgkgJZXKXwZux0n9SQp2NM+dxLwDa72RKSHjGzeEpLfY/z74ZJK7xGyd841jVnV/8QpNtFhRAbSPYKALYFTVNBlLCEc2cdCQx/5fh1XcfS/cld9XwaambCBnBo4W+z7O5dIRXtqu2f19xMF+upAU5sO2CzS1CfgykyOnDFOugvjCyOQ3kJ+Sn+wgwZRdITc3F0IqJ5zJ7ywPfMBKS8aMgxcO9ckhpyNwEAWbg8uVEGHYVy7dCahQzRgD70a5AG6yX2KzZXBp6c2eX/S/LwXu9LjvJZPknRRWF5fyRBJF4dE8dvjAnBJVP0T8kAvZowtwyv4XZ7U1OwfsjgMuOrEl0AK/Fqj4pf8SKtk9gtOz3j2HPTYSJhF+32FHdtBPwuj4WnBrh26UK2EVEm/3ku1uxvT4hl01igbpQqMTUB+r+r1JD3BBsVG/AbytaQdE4aQm83aC1TqWw2UziSV5SYOIPnBrSNbwgGdRkgXkPa2XPvIGXHNfLz5Tw3HtqXgFqIo0GKKDVMvhuwO4it2f02qbQv/7s+F8n4A8R3A4yIaIsS6LfQrZCRErka9A9tdRQ0cGSFwzLLRSUwp94r4UwRHHeYh1MjLqCmXgCBrx3FpmiGw9O2lzQ4l/aPKcoEeiHw/wKntZ2jOurLcXs1owO8udh0l8rpdG7w6IEXBQ8gbtjfkTllNMILZjvAz9K2u8ryGE/+cZ7tIt9JE0TksWC+qPQaHbO9NoqSrT8gJCySrCUT2PjmYONwCryP5NKvZuuksYiKTNKgA==',p).toString(window.CryptoJS.enc.Utf8)
         </script>]]></content>
   </entry>
   <entry>
