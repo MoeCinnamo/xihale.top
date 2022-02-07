@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>wireshark抓包入门</title>
-    <url>/wireshark%E6%8A%93%E5%8C%85%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>使用 <code>tcpdump</code> 已经满足不了日益增长的抓包需求了</p>
-<p>这时得使用更加强大的工具 <code>wireshark</code> 进行底层抓包了</p>
-<p>这是官网: <a href="https://www.wireshark.org/">Wireshark</a>(<a href="https://github.xihale.workers.dev/-----https://www.wireshark.org/">如果实在太卡点击这里,自己搭建了个万能镜像站</a>,不过别滥用)</p>
-<h2 id="言"><a href="#言" class="headerlink" title="言"></a>言</h2><h3 id="安装-installing"><a href="#安装-installing" class="headerlink" title="安装(installing)"></a>安装(installing)</h3><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>使用包管理器即可,不同系统的安装命令可能不同，这里演示 <code>Ubuntu系</code> 的安装方法</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install wireshark # 使用包管理器进行安装</span><br><span class="line">sudo groupadd wireshark # 添加一个 wireshark 用户组</span><br><span class="line">sudo chgrp wireshark /usr/bin/dumpcap # 将底层抓包命令 dumpcap 规划到 wireshark 用户组内 ( 获取执行权 )</span><br><span class="line">sudo chmod 4755 /usr/bin/dumpcap # 设置 wireshark 用户组拥有 root 权限</span><br></pre></td></tr></table></figure>
-<p>这里还有一步，请把 <code>xihale</code> 改为你自己的用户名!</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gpasswd -a xihale wireshark # 将自己加入到 wireshark 用户组以执行 wireshark</span><br></pre></td></tr></table></figure>
-<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p>去到这里: <a href="https://www.wireshark.org/#download或[镜像站](https://github.xihale.workers.dev/-----https://www.wireshark.org/#download">https://www.wireshark.org/#download或[镜像站](https://github.xihale.workers.dev/-----https://www.wireshark.org/#download</a>)</p>
-<p>下载安装包安装即可</p>
+    <title>在Linux下编译exe文件</title>
+    <url>/Linux%20build%20exe/</url>
+    <content><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>在 <code>linux</code> 下编写 <code>c++</code> ，然后又想直接编译成 <code>exe</code> 发布 ( 懒得去 <code>windows平台</code>重新编译了 )</p>
+<h2 id="言"><a href="#言" class="headerlink" title="言"></a>言</h2><p>这里使用 <code>交叉编译器</code> 实现编译 <code>exe文件</code></p>
+<ol>
+<li><p>安装 <code>mingw-w64</code> 包</p>
+<blockquote>
+<p> 各个系统有不同的安装命令，此处演示 <code>Ubuntu(Debian)系</code></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install mingw-w64</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 <code>mingw-w64</code> 编译</p>
+<blockquote>
+<p>其中内置的编译命令太多了，此处仅演示 <code>默认</code> 版本的 <code>g++ 编译器</code> ，其中 <code>main.cpp</code> 是需要编译的源文件</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">i686-w64-mingw32-g++ main.cpp -o main.exe</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
 ]]></content>
       <categories>
-        <category>网络</category>
+        <category>编程</category>
+        <category>linux</category>
       </categories>
       <tags>
-        <tag>wireshark</tag>
+        <tag>c++</tag>
       </tags>
   </entry>
   <entry>
@@ -25,7 +33,7 @@
     <url>/%E6%9C%80%E6%96%B0%E6%97%A0%E5%A4%87%E6%A1%88%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>从前，网站只要把端口改掉就能实现访问，但是现在不行了…</p>
 <p>而身为一个初中生，并没有资格去执行严苛的域名备案制度，我也无奈</p>
-<p>不过，身为一个男孩，想要拥有自己的网站(BLOG)也是理所当然的</p>
+<p>不过，身为一个热血青少年，想要拥有自己的网站(BLOG)也是理所当然的</p>
 <blockquote>
 <p>注: 本文不违法任何有关网站搭建的法律(目前来说)</p>
 <p>请不要使用此方法去做任何违法规则的事，作者概不负责</p>
@@ -56,6 +64,26 @@
 </li>
 </ol>
 ]]></content>
+  </entry>
+  <entry>
+    <title>wireshark抓包入门</title>
+    <url>/wireshark%E6%8A%93%E5%8C%85%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>使用 <code>tcpdump</code> 已经满足不了日益增长的抓包需求了</p>
+<p>这时得使用更加强大的工具 <code>wireshark</code> 进行底层抓包了</p>
+<p>这是官网: <a href="https://www.wireshark.org/">Wireshark</a>(<a href="https://github.xihale.workers.dev/-----https://www.wireshark.org/">如果实在太卡点击这里,自己搭建了个万能镜像站</a>,不过别滥用)</p>
+<h2 id="言"><a href="#言" class="headerlink" title="言"></a>言</h2><h3 id="安装-installing"><a href="#安装-installing" class="headerlink" title="安装(installing)"></a>安装(installing)</h3><h4 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h4><p>使用包管理器即可,不同系统的安装命令可能不同，这里演示 <code>Ubuntu系</code> 的安装方法</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt install wireshark # 使用包管理器进行安装</span><br><span class="line">sudo groupadd wireshark # 添加一个 wireshark 用户组</span><br><span class="line">sudo chgrp wireshark /usr/bin/dumpcap # 将底层抓包命令 dumpcap 规划到 wireshark 用户组内 ( 获取执行权 )</span><br><span class="line">sudo chmod 4755 /usr/bin/dumpcap # 设置 wireshark 用户组拥有 root 权限</span><br></pre></td></tr></table></figure>
+<p>这里还有一步，请把 <code>xihale</code> 改为你自己的用户名!</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo gpasswd -a xihale wireshark # 将自己加入到 wireshark 用户组以执行 wireshark</span><br></pre></td></tr></table></figure>
+<h4 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h4><p>去到这里: <a href="https://www.wireshark.org/#download或[镜像站](https://github.xihale.workers.dev/-----https://www.wireshark.org/#download">https://www.wireshark.org/#download或[镜像站](https://github.xihale.workers.dev/-----https://www.wireshark.org/#download</a>)</p>
+<p>下载安装包安装即可</p>
+]]></content>
+      <categories>
+        <category>网络</category>
+      </categories>
+      <tags>
+        <tag>wireshark</tag>
+      </tags>
   </entry>
   <entry>
     <title>wstring与string</title>
