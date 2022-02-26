@@ -9,7 +9,8 @@
 </li>
 <li><p>使用<code>blkid</code>命令获取分区的<code>UUID</code>并<code>复制</code></p>
 </li>
-<li><p>打开<code>/etc/fstab</code>自动挂载分区标识文件<br><code>sudo vim /etc/fstab</code></p>
+<li><p>打开<code>/etc/fstab</code>自动挂载分区标识文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/fstab</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>添加/修改即可，格式：</p>
 <blockquote>
