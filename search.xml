@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>自动 mount</title>
+    <url>/auto-mount/</url>
+    <content><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>有几个分区得自动<code>mount</code></p>
+<h2 id="言"><a href="#言" class="headerlink" title="言"></a>言</h2><ol>
+<li><p>挂载需要自动挂载的分区</p>
+</li>
+<li><p>使用<code>blkid</code>命令获取分区的<code>UUID</code>并<code>复制</code></p>
+</li>
+<li><p>打开<code>/etc/fstab</code>自动挂载分区标识文件<br><code>sudo vim /etc/fstab</code></p>
+</li>
+<li><p>添加/修改即可，格式：</p>
+<blockquote>
+<p>请将<code>uuid</code>替换为<code>刚刚复制的 uuid</code>，</p>
+<p>然后把绑定目录改一下，一般只需要把<code>xihale</code>改为你<code>自己的用户名</code>，把<code>dir</code>改为需要绑定到的<code>文件夹名</code>即可，</p>
+<p>最后把<code>ext4</code>改为你需要的分区格式，一般是<code>ntfs</code>或<code>fat32</code></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">UUID=uuid /media/xihale/dir ext4 defaults 0 0</span><br></pre></td></tr></table></figure>
+<p>一般来说，后面两个参数都填<code>0</code>，<a href="https://www.rmssf.com/news/fstab dump pass values.html">详解在这</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Beauty-words</title>
     <url>/beauty/</url>
     <content><![CDATA[<h1 id="杂"><a href="#杂" class="headerlink" title="杂"></a>杂</h1><h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><blockquote>
