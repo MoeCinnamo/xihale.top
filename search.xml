@@ -1,6 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>通过无备案域名搭建在国内服务器上的网站</title>
+    <url>/%E6%9C%80%E6%96%B0%E6%97%A0%E5%A4%87%E6%A1%88%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>从前，网站只要把端口改掉就能实现访问，但是现在不行了…</p>
+<p>而身为一个初中生，并没有资格去执行严苛的域名备案制度，我也无奈</p>
+<p>不过，身为一个热血青少年，想要拥有自己的网站(BLOG)也是理所当然的</p>
+<blockquote>
+<p>注: 本文不违法任何有关网站搭建的法律(目前来说)</p>
+<p>请不要使用此方法去做任何违法规则的事，作者概不负责</p>
+<p>此方法优缺点</p>
+<p>优点：可以支持80端口代理访问</p>
+<p>缺点：IP段不支持<code>https</code></p>
+</blockquote>
+<h2 id="言"><a href="#言" class="headerlink" title="言"></a>言</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>服务商的服务器限制在更底层，因为我们买的服务器一般不是物理机，所以相当于是虚拟机了，也就是说我们根本无法通过修改服务器的配置去防止域名被拦截，所以这条路不通!</p>
+<p>而众所周知，服务商限制的是域名的备案与否，这与IP段访问是没什么关系的</p>
+<p>（所以你想说，我在说废话吗？）</p>
+<p>不，这里贴出我的解决方案</p>
+<blockquote>
+<p>具体可以实现的功能: url实时刷新，url间接访问</p>
+<p>有点晦涩难懂…看效果(这是我用这个方法搭建的站): <a href="https://o.xurl.ga/">Public - xihale</a></p>
+</blockquote>
+<h3 id="搭建教程"><a href="#搭建教程" class="headerlink" title="搭建教程"></a>搭建教程</h3><ol>
+<li><p>首先把这段代码加入到要代理的页面(实现url刷新的基本)</p>
+<p>关于这个，如果是php伪静态的话建议加在主题文件内(防止干扰其他页面的问题,<code>OneManager</code>就遇到了这个问题)</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    top.postMessage(location.pathname+location.search+location.hash, <span class="string">&quot;*&quot;</span>);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后自己用国外服务器搭建一个<code>代理站</code>填入<code>index.html</code>(记得把<code>Page</code>变量改为要代理的页面)</p>
+<blockquote>
+<p>注: 这里改链接为锚点形式是为了方便单文件读取</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Public - xihale<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">            <span class="selector-tag">html</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">iframe</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">                <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">border</span>: none;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">id</span>=<span class="string">&quot;page&quot;</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">            <span class="keyword">const</span> Page=<span class="string">`http://`</span>;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.getElementById(<span class="string">&quot;page&quot;</span>).src=Page+location.hash.slice(<span class="number">1</span>);</span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.addEventListener(<span class="string">&quot;load&quot;</span>,<span class="function">()=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.addEventListener(<span class="string">&quot;message&quot;</span>,<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(e.data);</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">window</span>.history.pushState(&#123;&#125;,<span class="number">0</span>,location.origin+<span class="string">&#x27;#&#x27;</span>+e.data);</span></span><br><span class="line"><span class="javascript">                &#125;);</span></span><br><span class="line"><span class="javascript">            &#125;);</span></span><br><span class="line"><span class="javascript">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后访问代理页面就相当于正常访问源站了</p>
+</li>
+<li><p>cookie 跨站问题</p>
+<ol>
+<li><p>首先得去注册 <code>ip</code> 的证书</p>
+</li>
+<li><p>用<code>https</code>访问站点，并把代理代码中的<code>Page</code>变量改为 <code>https</code> 格式</p>
+</li>
+<li><p>在配置文档( <code>https</code> 申明处 )中加入 <code>Set-Cookie: Secure;SameSite=None;</code>配置</p>
+<p>这里用 <code>apache</code> 的 <code>example</code> :</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Header always edit Set-Cookie ^(.*)$ &quot;$1;Secure;SameSite=None;&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>Beauty-words</title>
+    <url>/beauty/</url>
+    <content><![CDATA[<h1 id="杂"><a href="#杂" class="headerlink" title="杂"></a>杂</h1><h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><blockquote>
+<p>送走人间种种别离，送走世间种种变迁，逝者如斯，时光永远不会止步，所以，我们会再度与人萍水相逢，相识相知，一同织下我们的人生</p>
+<p>经为流逝的日月，纬为人们的生业</p>
+<p>逝者如斯夫，不舍昼夜</p>
+<p>时间注定会带走我们的回忆，既然这样，那就让我们在最后的时光里随心所欲地翱翔吧</p>
+</blockquote>
+<h2 id="人生"><a href="#人生" class="headerlink" title="人生"></a>人生</h2><blockquote>
+<p>离别不是失去，而是成长；离别不是终结，而是新生；离别不是放弃，而是成全</p>
+<p>世有伯乐，然后有千里马，千里马常有，而伯乐不常有</p>
+<p>斯是陋室，惟吾德馨</p>
+<p>三军可夺帅也，匹夫不可夺志也</p>
+<p>人不知而不愠，不亦君子乎</p>
+<p>出淤泥而不染，濯清涟而不妖</p>
+<p>谈笑有鸿儒，往来无白丁</p>
+<p>万里星光，一如既往</p>
+<p>生命可以随心所欲，但不能随波逐流</p>
+<p>青春应是一种永恒的心态，它意味着勇敢战胜怯弱，意味着进取战胜安逸</p>
+</blockquote>
+<h2 id="坚持"><a href="#坚持" class="headerlink" title="坚持"></a>坚持</h2><blockquote>
+<p>最长的路也有尽头，最黑暗的夜晚也会迎接清晨</p>
+<p>我对自己说，跨过去，春天不远了，永远不要失去发芽的心情</p>
+<p>虽然绿灯没怎么为我亮过，但我还是对生活充满热情，这就是我理解的年轻</p>
+</blockquote>
+<h2 id="困难-挫折"><a href="#困难-挫折" class="headerlink" title="困难 / 挫折"></a>困难 / 挫折</h2><blockquote>
+<p>没有磨砺的灵魂没有深度，没有风暴的海洋是池塘</p>
+<p>长风破浪会有时，直挂云帆济沧海</p>
+<p>悲痛的事，温柔以对；难过的事，坚强以对</p>
+<p>风会吹走一张白纸，但吹不走一只蝴蝶，因为生命的力量在于不向命运低头</p>
+</blockquote>
+<h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><blockquote>
+<p>学而不思则罔，思而不学则惑</p>
+<p>三人行，必有我师焉，择其善者而从之，其不善者而改之</p>
+<p>饭疏食，饮水，曲肱而枕之，乐亦在其中矣</p>
+<p>疑惑是成功的钥匙，思考是成功的道路，坚持是成功的大门，我们终将拿起钥匙走过道路打开大门</p>
+</blockquote>
+<h2 id="景色"><a href="#景色" class="headerlink" title="景色"></a>景色</h2><blockquote>
+<p>天空一碧如洗，灿烂的阳光正从密密的松针的缝隙间射下来，形成一束束粗粗细细的光柱，把飘荡着轻纱般薄雾的林荫照的通亮</p>
+<p>雾凇沆砀，天与云与山与水，上下一白，湖上影子，惟长提一痕、湖心亭一点、与余舟一芥、舟中人两三粒而已<sup><a href="#fn_湖心亭看雪" id="reffn_湖心亭看雪">湖心亭看雪</a></sup></p>
+<p>苔痕上阶绿，草色入帘青</p>
+</blockquote>
+<h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><blockquote id="fn_湖心亭看雪">
+<sup>湖心亭看雪</sup>. 湖面上冰花一片弥漫，天与云与山与水，浑然一体，白茫茫一片。湖上的影子，只有一道长堤的痕迹，一点湖心亭的轮廓，和我的一叶小舟，舟中的两三粒人影罢了<br><br>运用白描的写法，由远及近，由大到小，具有很强的视觉效果；写出了环境的空旷以及人在这空旷环境中显得渺小，简直就是沧海一粟，表达了作者<strong>天人合一</strong>和<strong>弃世脱俗</strong>的高雅情怀<a href="#reffn_湖心亭看雪" title="Jump back to footnote [湖心亭看雪] in the text."> &#8617;</a>
+</blockquote>
+]]></content>
+      <categories>
+        <category>写作</category>
+      </categories>
+  </entry>
+  <entry>
     <title>自动 mount</title>
     <url>/auto-mount/</url>
     <content><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>有几个分区得自动<code>mount</code></p>
@@ -29,57 +129,6 @@
       <tags>
         <tag>linux</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Beauty-words</title>
-    <url>/beauty/</url>
-    <content><![CDATA[<h1 id="杂"><a href="#杂" class="headerlink" title="杂"></a>杂</h1><h2 id="时间"><a href="#时间" class="headerlink" title="时间"></a>时间</h2><blockquote>
-<p>送走人间种种别离，送走世间种种变迁，逝者如斯，时光永远不会止步，所以，我们会再度与人萍水相逢，相识相知，一同织下我们的人生</p>
-<p>经为流逝的日月，纬为人们的生业</p>
-<p>逝者如斯夫，不舍昼夜</p>
-</blockquote>
-<h2 id="人生态度"><a href="#人生态度" class="headerlink" title="人生态度"></a>人生态度</h2><blockquote>
-<p>悲痛的事，温柔以对；难过的事，坚强以对</p>
-<p>离别不是失去，而是成长；离别不是终结，而是新生；离别不是放弃，而是成全</p>
-<p>长风破浪会有时，直挂云帆济沧海</p>
-<p>世有伯乐，然后有千里马，千里马常有，而伯乐不常有，你应该始终坚信着你只是还没有遇到你的伯乐，然后继续向前</p>
-<p>斯是陋室，惟吾德馨</p>
-<p>三军可夺帅也，匹夫不可夺志也</p>
-<p>人不知而不愠，不亦君子乎</p>
-<p>出淤泥而不染，濯清涟而不妖</p>
-<p>谈笑有鸿儒，往来无白丁</p>
-<p>一鼓作气，再而衰，三而竭</p>
-<p>近朱者赤，近墨者黑</p>
-</blockquote>
-<h2 id="学习态度"><a href="#学习态度" class="headerlink" title="学习态度"></a>学习态度</h2><blockquote>
-<p>学而不思则罔，思而不学则惑</p>
-<p>三人行，必有我师焉，择其善者而从之，其不善者而改之</p>
-<p>饭疏食，饮水，曲肱而枕之，乐亦在其中矣</p>
-<p>疑惑是成功的钥匙，思考是成功的道路，坚持是成功的大门，我们终将拿起钥匙走过道路打开大门</p>
-</blockquote>
-<h2 id="自由"><a href="#自由" class="headerlink" title="自由"></a>自由</h2><blockquote>
-<p>古老的事物注定要灭亡，既然这样，那就让他们在最后的时光里随心所欲地翱翔吧</p>
-</blockquote>
-<h2 id="景色"><a href="#景色" class="headerlink" title="景色"></a>景色</h2><blockquote>
-<p>天空一碧如洗，灿烂的阳光正从密密的松针的缝隙间射下来，形成一束束粗粗细细的光柱，把飘荡着轻纱般薄雾的林荫照的通亮</p>
-<p>雾凇沆砀，天与云与山与水，上下一白，湖上影子，惟长提一痕、湖心亭一点、与余舟一芥、舟中人两三粒而已<sup><a href="#fn_湖心亭看雪" id="reffn_湖心亭看雪">湖心亭看雪</a></sup></p>
-<p>苔痕上阶绿，草色入帘青</p>
-</blockquote>
-<h2 id="青春"><a href="#青春" class="headerlink" title="青春"></a>青春</h2><blockquote>
-<p>青春应是一种永恒的心态，它意味着勇敢战胜怯弱，意味着进取战胜安逸</p>
-</blockquote>
-<h2 id="人生"><a href="#人生" class="headerlink" title="人生"></a>人生</h2><blockquote>
-<p>人生如一本书，应该多一些精彩的细节，少一些乏味的字眼；人生如一支歌，应该多一些昂扬的旋律，少一些忧伤的音符；人生如一幅画，应该多一些亮丽的色彩，少一些灰暗的色调</p>
-<p>人生似一束鲜花，仔细观赏，才能看到它的美丽；人生似一杯清茶，细细品味，才能赏出真味道。我们应该从失败中从成功中从生活品味出人生的哲理</p>
-<p>人生的路漫长而多彩，就像在天边的大海上航行，有时会风平浪静，行驶顺利；而有时却会是惊涛骇浪，行驶艰难。但只要我们心中的灯塔不熄灭，就能沿着自己的航线继续航行。人生的路漫长而多彩，在阳光中我学会欢笑，在阴云中我学会坚强；在狂风中我抓紧希望，在暴雨中我抓紧理想；当我站在中点回望，我走出了一条属于我的生之路</p>
-</blockquote>
-<h1 id="解"><a href="#解" class="headerlink" title="解"></a>解</h1><blockquote id="fn_湖心亭看雪">
-<sup>湖心亭看雪</sup>. 湖面上冰花一片弥漫，天与云与山与水，浑然一体，白茫茫一片。湖上的影子，只有一道长堤的痕迹，一点湖心亭的轮廓，和我的一叶小舟，舟中的两三粒人影罢了<br><br>运用白描的写法，由远及近，由大到小，具有很强的视觉效果；写出了环境的空旷以及人在这空旷环境中显得渺小，简直就是沧海一粟，表达了作者<strong>天人合一</strong>和<strong>弃世脱俗</strong>的高雅情怀<a href="#reffn_湖心亭看雪" title="Jump back to footnote [湖心亭看雪] in the text."> &#8617;</a>
-</blockquote>
-]]></content>
-      <categories>
-        <category>writing</category>
-      </categories>
   </entry>
   <entry>
     <title>ES6新特性 - promise</title>
@@ -125,43 +174,6 @@
       <tags>
         <tag>c++</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>通过无备案域名搭建在国内服务器上的网站</title>
-    <url>/%E6%9C%80%E6%96%B0%E6%97%A0%E5%A4%87%E6%A1%88%E7%BD%91%E7%AB%99%E6%90%AD%E5%BB%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-    <content><![CDATA[<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>从前，网站只要把端口改掉就能实现访问，但是现在不行了…</p>
-<p>而身为一个初中生，并没有资格去执行严苛的域名备案制度，我也无奈</p>
-<p>不过，身为一个热血青少年，想要拥有自己的网站(BLOG)也是理所当然的</p>
-<blockquote>
-<p>注: 本文不违法任何有关网站搭建的法律(目前来说)</p>
-<p>请不要使用此方法去做任何违法规则的事，作者概不负责</p>
-<p>此方法优缺点</p>
-<p>优点：可以支持80端口代理访问</p>
-<p>缺点：IP段不支持<code>https</code></p>
-</blockquote>
-<h2 id="言"><a href="#言" class="headerlink" title="言"></a>言</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>服务商的服务器限制在更底层，因为我们买的服务器一般不是物理机，所以相当于是虚拟机了，也就是说我们根本无法通过修改服务器的配置去防止域名被拦截，所以这条路不通!</p>
-<p>而众所周知，服务商限制的是域名的备案与否，这与IP段访问是没什么关系的</p>
-<p>（所以你想说，我在说废话吗？）</p>
-<p>不，这里贴出我的解决方案</p>
-<blockquote>
-<p>具体可以实现的功能: url实时刷新，url间接访问</p>
-<p>有点晦涩难懂…看效果(这是我用这个方法搭建的站): <a href="https://o.xurl.ga/">Public - xihale</a></p>
-</blockquote>
-<h3 id="搭建教程"><a href="#搭建教程" class="headerlink" title="搭建教程"></a>搭建教程</h3><ol>
-<li><p>首先把这段代码加入到要代理的页面(实现url刷新的基本)</p>
-<p>关于这个，如果是php伪静态的话建议加在主题文件内(防止干扰其他页面的问题,<code>OneManager</code>就遇到了这个问题)</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    top.postMessage(location.pathname+location.search+location.hash, <span class="string">&quot;*&quot;</span>);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后自己用国外服务器搭建一个<code>代理站</code>填入<code>index.html</code>(记得把<code>Page</code>变量改为要代理的页面)</p>
-<blockquote>
-<p>注: 这里改链接为锚点形式是为了方便单文件读取</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Public - xihale<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">            <span class="selector-tag">html</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">iframe</span>&#123;</span></span><br><span class="line"><span class="css">                <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">                <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">                <span class="attribute">border</span>: none;</span></span><br><span class="line"><span class="css">            &#125;</span></span><br><span class="line"><span class="css">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">id</span>=<span class="string">&quot;page&quot;</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">            <span class="keyword">const</span> Page=<span class="string">`http://`</span>;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">document</span>.getElementById(<span class="string">&quot;page&quot;</span>).src=Page+location.hash.slice(<span class="number">1</span>);</span></span><br><span class="line"><span class="javascript">            <span class="built_in">window</span>.addEventListener(<span class="string">&quot;load&quot;</span>,<span class="function">()=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.addEventListener(<span class="string">&quot;message&quot;</span>,<span class="function">(<span class="params">e</span>)=&gt;</span>&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">console</span>.log(e.data);</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">window</span>.history.pushState(&#123;&#125;,<span class="number">0</span>,location.origin+<span class="string">&#x27;#&#x27;</span>+e.data);</span></span><br><span class="line"><span class="javascript">                &#125;);</span></span><br><span class="line"><span class="javascript">            &#125;);</span></span><br><span class="line"><span class="javascript">        </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后访问代理页面就相当于正常访问源站了</p>
-</li>
-</ol>
-]]></content>
   </entry>
   <entry>
     <title>wireshark抓包入门</title>
