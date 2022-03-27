@@ -34,19 +34,22 @@
 </li>
 <li><p>然后访问代理页面就相当于正常访问源站了</p>
 </li>
-<li><p>cookie 跨站问题</p>
-<ol>
+</ol>
+<h3 id="cookie-跨站问题"><a href="#cookie-跨站问题" class="headerlink" title="cookie 跨站问题"></a>cookie 跨站问题</h3><ol>
 <li><p>首先得去注册 <code>ip</code> 的证书</p>
 </li>
 <li><p>用<code>https</code>访问站点，并把代理代码中的<code>Page</code>变量改为 <code>https</code> 格式</p>
 </li>
 <li><p>在配置文档( <code>https</code> 申明处 )中加入 <code>Set-Cookie: Secure;SameSite=None;</code>配置</p>
+</li>
+</ol>
 <p>这里用 <code>apache</code> 的 <code>example</code> :</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Header always edit Set-Cookie ^(.*)$ &quot;$1;Secure;SameSite=None;&quot;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ol>
+<h3 id="网站本身用-history-刷新机制"><a href="#网站本身用-history-刷新机制" class="headerlink" title="网站本身用 history 刷新机制"></a>网站本身用 history 刷新机制</h3><p>这里重写 <code>history</code> 刷新机制，添加 <code>addHistoryListen</code> 功能</p>
+<blockquote>
+<p>解决方案来自: <a href="https://juejin.cn/user/2541726614175479">0.0君47079</a>大佬的文章<a href="https://juejin.cn/post/6844903790508933133">JavaScript如何实现history路由变化监听</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">class Dep &#123;                  // 订阅池</span><br><span class="line">    constructor(name)&#123;</span><br><span class="line">        this.id = new Date() //这里简单的运用时间戳做订阅池的ID</span><br><span class="line">        this.subs = []       //该事件下被订阅对象的集合</span><br><span class="line">    &#125;</span><br><span class="line">    defined()&#123;              // 添加订阅者</span><br><span class="line">        Dep.watch.add(this);</span><br><span class="line">    &#125;</span><br><span class="line">    notify() &#123;              //通知订阅者有变化</span><br><span class="line">        this.subs.forEach((e, i) =&gt; &#123;</span><br><span class="line">            if(typeof e.update === &#x27;function&#x27;)&#123;</span><br><span class="line">                try &#123;</span><br><span class="line">                   e.update.apply(e)  //触发订阅者更新函数</span><br><span class="line">                &#125; catch(err)&#123;</span><br><span class="line">                    console.warr(err)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">Dep.watch = null;</span><br><span class="line"></span><br><span class="line">class Watch &#123;</span><br><span class="line">    constructor(name, fn)&#123;</span><br><span class="line">        this.name = name;       //订阅消息的名称</span><br><span class="line">        this.id = new Date();   //这里简单的运用时间戳做订阅者的ID</span><br><span class="line">        this.callBack = fn;     //订阅消息发送改变时-&gt;订阅者执行的回调函数     </span><br><span class="line">    &#125;</span><br><span class="line">    add(dep) &#123;                  //将订阅者放入dep订阅池</span><br><span class="line">       dep.subs.push(this);</span><br><span class="line">    &#125;</span><br><span class="line">    update() &#123;                  //将订阅者更新方法</span><br><span class="line">        var cb = this.callBack; //赋值为了不改变函数内调用的this</span><br><span class="line">        cb(this.name);          </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var addHistoryMethod = (function()&#123;</span><br><span class="line">        var historyDep = new Dep();</span><br><span class="line">        return function(name) &#123;</span><br><span class="line">            if(name === &#x27;historychange&#x27;)&#123;</span><br><span class="line">                return function(name, fn)&#123;</span><br><span class="line">                    var event = new Watch(name, fn)</span><br><span class="line">                    Dep.watch = event;</span><br><span class="line">                    historyDep.defined();</span><br><span class="line">                    Dep.watch = null;       //置空供下一个订阅者使用</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; else if(name === &#x27;pushState&#x27; || name === &#x27;replaceState&#x27;) &#123;</span><br><span class="line">                var method = history[name];</span><br><span class="line">                return function()&#123;</span><br><span class="line">                    method.apply(history, arguments);</span><br><span class="line">                    historyDep.notify();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">&#125;())</span><br><span class="line"></span><br><span class="line">window.addHistoryListener = addHistoryMethod(&#x27;historychange&#x27;);</span><br><span class="line">history.pushState =  addHistoryMethod(&#x27;pushState&#x27;);</span><br><span class="line">history.replaceState =  addHistoryMethod(&#x27;replaceState&#x27;);</span><br><span class="line"></span><br><span class="line">window.addHistoryListener(&#x27;history&#x27;,function()&#123;</span><br><span class="line">    top.postMessage(location.pathname+location.search+location.hash, &quot;*&quot;);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 ]]></content>
   </entry>
   <entry>
